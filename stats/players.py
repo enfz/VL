@@ -1,8 +1,5 @@
 
 
-
-
-
 class Team:
     region: str
     players: list[Player]
@@ -32,4 +29,4 @@ class Player:
         self.name, self.org, self.acs, self.kd, self.kast, self.adr, \
             self.kpr, self.apr, self.fkpr, self.fdpr, self.hs, self.cl = \
             name, org, acs, kd, kast, adr, kpr,apr, fkpr, fdpr, hs, cl
-        
+
