@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Valo Stats</title>
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" />
+    
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@400&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/style.css">
+</head>
+
+<section class="area" id="area">
+    <div class="left" id="left">
+        <div class="dropdown">
+            <button class="dropbtn">Region</button>
+            <div class="dropdown-content">
+                <a onclick="chooseRegion1('eu')">EU</a>
+                <a onclick="chooseRegion1('na')">NA</a>
+                <a onclick="chooseRegion1('kr')">KR</a>
+            </div>
+        </div>
+
+
+        <input type="text" id="myInput" onkeyup="searchBar()" placeholder="Search for names..">
+
+        
+        <template data-player-template>
+            <ul id="myUL">
+            <li><a onclick="choosePlayer('')">
+                <div class="header" data-header></div>
+            </a></li>
+            </ul>
+        </template>
+        <script src="function.js"></script>
+
+    </div>
+
+    <div class="right" id="right">
+        <div class="dropdown">
+            <button class="dropbtn">Region</button>
+            <div class="dropdown-content">
+                <a onclick="chooseRegion2('eu')">EU</a>
+                <a onclick="chooseRegion2('na')">NA</a>
+                <a onclick="chooseRegion2('kr')">KR</a>
+            </div>
+        </div>
+
+
+        <input type="text" id="myInput" onkeyup="searchBar()" placeholder="Search for names..">
+
+
+        <template data-player-template>
+            <ul id="myUL">
+            <li><a onclick="choosePlayer('')">
+                <div class="header" data-header></div>
+            </a></li>
+            </ul>
+        </template>
+
+        <script src="function.js"></script>
+    </div>
+</section>
