@@ -1,0 +1,212 @@
+/*Font settings*/
+
+:root {
+  --ff-primary: 'Roboto', sans-serif;
+  --ff-secondary: 'Montserrat', sans-serif;
+
+  --fw-reg: 300;
+  --fw-bold: 900;
+}
+
+.area {
+  white-space: nowrap;
+  grid-template-areas:
+      "left right"
+      "button button";
+}
+
+.left {
+  grid-area: left;
+  position: absolute;
+  top: 43%;
+  left: 22%;
+  display: inline-block;
+}
+
+.right {
+  grid-area: right;
+  position: absolute;
+  top: 43%;
+  left: 56%;
+  display: inline-block;
+}
+
+.btn {
+  grid-area: button;
+  position: absolute;
+  width: 5em;
+  margin: auto;
+  background-color: #0b2502;
+  top: 50%;
+  left: 46.5%;
+  border: none;
+  padding: 16px 32px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: var(--ff-primary);
+  font-size: 16px;
+}
+
+#stats {
+  position: relative;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  top: 22vh;
+  border-spacing: 7px;
+}
+
+  #stats th {
+    font-size: 30px;
+    font-family: var(--ff-secondary);
+  }
+
+  .higher {
+    color: #114F00;
+  }
+
+  .draw {
+    color: blue;
+  }
+
+  .lower {
+    color: #A40C0C
+  }
+
+.reset {
+  position: relative;
+  background-color:gray;
+  border: none;
+  padding: 15px 32px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    position: relative;
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    font-family: var(--ff-primary);
+    border: none;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    font-family: var(--ff-secondary);
+    min-width: 80px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+  
+/*SEARCH BARS*/
+
+  #myInput {
+    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 15vw; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 35px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+  }
+  
+  #myUL {
+    /* Remove default list styling */
+    overflow: auto;
+    height: 450px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 5.5em;
+  }
+  
+  #myUL li a {
+    border: 1px solid #ddd; /* Add a border to all links */
+    width: 15vw; 
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6; /* Grey background color */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove default text underline */
+    font-size: 18px; /* Increase the font-size */
+    color: black; /* Add a black text color */
+    display: block; /* Make it into a block element to fill the whole list */
+  }
+  
+  
+  #myUL li a:hover:not(.header) {
+    background-color: #eee; /* Add a hover effect to all links, except for headers */
+  }
+
+  #myInput2 {
+    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 15vw; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 35px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+  }
+  
+  #myUL2 {
+    /* Remove default list styling */
+    overflow: auto;
+    height: 450px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 5.5em;
+  }
+  
+  #myUL2 li a {
+    border: 1px solid #ddd; /* Add a border to all links */
+    width: 15vw; 
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6; /* Grey background color */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove default text underline */
+    font-size: 18px; /* Increase the font-size */
+    color: black; /* Add a black text color */
+    display: block; /* Make it into a block element to fill the whole list */
+  }
+  
+  
+  #myUL2 li a:hover:not(.header) {
+    background-color: #eee; /* Add a hover effect to all links, except for headers */
+  }

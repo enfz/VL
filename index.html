@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Valo Stats</title>
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" />
+    
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@400&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <section class="area" id="area">
+        <div class="left" id="left">
+            <div class="dropdown">
+                <button class="dropbtn">Region</button>
+                <div class="dropdown-content">
+                    <a onclick="chooseRegion1('ap')">APAC</a>
+                    <a onclick="chooseRegion1('eu')">EMEA</a>
+                    <a onclick="chooseRegion1('jp')">JP</a>
+                    <a onclick="chooseRegion1('kr')">KR</a>
+                    <a onclick="chooseRegion1('mn')">MENA</a>
+                    <a onclick="chooseRegion1('na')">NA</a>
+                    <a onclick="chooseRegion1('oce')">OCE</a>
+                    <a onclick="chooseRegion1('sa')">SA</a>
+                </div>
+            </div>
+
+
+            <input type="text" id="myInput" onkeyup="searchBar1()" placeholder="Search for names..">
+            <ul id="myUL">
+                
+            </ul>
+
+        </div>
+
+        <div class="right" id="right">
+            <div class="dropdown">
+                <button class="dropbtn">Region</button>
+                <div class="dropdown-content">
+                    <a onclick="chooseRegion2('ap')">APAC</a>
+                    <a onclick="chooseRegion2('eu')">EMEA</a>
+                    <a onclick="chooseRegion2('jp')">JP</a>
+                    <a onclick="chooseRegion2('kr')">KR</a>
+                    <a onclick="chooseRegion2('mn')">MENA</a>
+                    <a onclick="chooseRegion2('na')">NA</a>
+                    <a onclick="chooseRegion2('oce')">OCE</a>
+                    <a onclick="chooseRegion2('sa')">SA</a>
+                </div>
+            </div>
+
+            <input type="text" id="myInput2" onkeyup="searchBar2()" placeholder="Search for names.." title="Type in a name">
+            <ul id="myUL2">
+                                
+            </ul>
+        
+            <script src="function.js"></script>
+            
+
+        </div>
+    </section>
+
+    <a class="btn" href="compare.html">
+        Compare
+    </a>
+</html>
