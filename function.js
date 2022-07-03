@@ -19,8 +19,9 @@ const loadPlayers1 = async () => {
         players1 = temp.data.segments
         displayPlayers1(players1);
     } catch (err) {
-        
         console.error(err);
+        alert("You will be quickly redirected to \nhttps://cors-anywhere.herokuapp.com/corsdemo \nto request temporary access to use the client.")
+        window.open("https://cors-anywhere.herokuapp.com/corsdemo").focus
     }
 };
 
@@ -44,20 +45,25 @@ function chooseRegion1(choice){
 function searchBar1(){
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById('myInput');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById('myUL');
-    li = ul.getElementsByTagName('li');
+    if (region1){
+        filter = input.value.toUpperCase();
+        ul = document.getElementById('myUL');
+        li = ul.getElementsByTagName('li');
 
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          li[i].style.display = "";
-        } 
-        else {
-          li[i].style.display = "none";
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+            } 
+            else {
+            li[i].style.display = "none";
+            }
         }
-    }
+    } else{
+        alert("Please select a region first.")
+        input.value = ''
+}
 }
 
 const loadPlayers2 = async () => {
@@ -93,32 +99,35 @@ function chooseRegion2(choice){
 function searchBar2(){
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById('myInput2');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById('myUL2');
-    li = ul.getElementsByTagName('li');
+    if (region2){
+        filter = input.value.toUpperCase();
+        ul = document.getElementById('myUL2');
+        li = ul.getElementsByTagName('li');
 
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          li[i].style.display = "";
-        } 
-        else {
-          li[i].style.display = "none";
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+            } 
+            else {
+            li[i].style.display = "none";
+            }
         }
+    } else{
+        alert("Please select a region first.")
+        input.value = ''
     }
 }
 
 function choosePlayer1(name1, org1){
     player1 = players1.find(element => element.player == name1 && element.org == org1);
     sessionStorage.setItem("player1", JSON.stringify(player1));
-    console.log(player1)
 }
 
 function choosePlayer2(name2, org2){
     player2 = players2.find(element => element.player == name2 && element.org == org2);
     sessionStorage.setItem("player2", JSON.stringify(player2));
-    console.log(player2)
 }
 
 function reset(){
@@ -130,8 +139,13 @@ function reset(){
     players2 = [];
     player1 = '';
     player2 = '';
-    playerList1.innerHTML = '';
-    playerList2.innerHTML = '';
+    if (playerList1){
+        playerList1.innerHTML = "";
+    }
+    if (playerList2){
+        playerList2.innerHTML = "";
+    }
+    sessionStorage.clear();
 }
 
 function tablePlayers(){ 
@@ -143,26 +157,36 @@ function tablePlayers(){
     var playerA = JSON.parse(sessionStorage.getItem("player1"));
     var playerB = JSON.parse(sessionStorage.getItem("player2"));
 
-    for(var key in playerA){
-        playerAVariables.push(playerA[key])
-        playerBVariables.push(playerB[key])
-    }
-
-    strings.push('<tr><th>Players</th><th>' + playerA.org + " " + playerA.player + '</th><th>' + playerB.org + " " + playerB.player + '</th></tr>\n')
-
-    for(var i = 2; i < playerAVariables.length; i++){
-        if(playerAVariables[i] > playerBVariables[i]){
-            strings.push('<tr><th>' + varNames[i] + '</th><th class="higher">' + playerAVariables[i] + '</th><th class="lower">' + playerBVariables[i] + '</th></tr>\n')
-        } else if(playerAVariables[i] < playerBVariables[i]){
-            strings.push('<tr><th>' + varNames[i] + '</th><th class="lower">' + playerAVariables[i] + '</th><th class="higher">' + playerBVariables[i] + '</th></tr>\n')
-        } else {
-            strings.push('<tr><th>' + varNames[i] + '</th><th class="draw">' + playerAVariables[i] + '</th><th class="draw">' + playerBVariables[i] + '</th></tr>\n')
+    if (playerA && playerB){
+        for(var key in playerA){
+            playerAVariables.push(playerA[key])
+            playerBVariables.push(playerB[key])
         }
+
+        strings.push('<tr><th>Players</th><th>' + playerA.org + " " + playerA.player + '</th><th>' + playerB.org + " " + playerB.player + '</th></tr>\n')
+
+        for(var i = 2; i < playerAVariables.length; i++){
+            if(playerAVariables[i] > playerBVariables[i]){
+                strings.push('<tr><th>' + varNames[i] + '</th><th class="higher">' + playerAVariables[i] + '</th><th class="lower">' + playerBVariables[i] + '</th></tr>\n')
+            } else if(playerAVariables[i] < playerBVariables[i]){
+                strings.push('<tr><th>' + varNames[i] + '</th><th class="lower">' + playerAVariables[i] + '</th><th class="higher">' + playerBVariables[i] + '</th></tr>\n')
+            } else {
+                strings.push('<tr><th>' + varNames[i] + '</th><th class="draw">' + playerAVariables[i] + '</th><th class="draw">' + playerBVariables[i] + '</th></tr>\n')
+            }
+        }
+        
+        const htmlPlayerString = strings.join('');
+        table.innerHTML = htmlPlayerString;
     }
-    
-    const htmlPlayerString = strings.join('');
-    table.innerHTML = htmlPlayerString;
-};
+    else{
+        alert("Please select 2 players to compare.");
+        window.location.href = "index.html";
+    }
+}
+
+function resetCompare(){
+    sessionStorage.clear();
+}
 
 /* function getSearchText(side) {
     if (side == 1){

@@ -15,8 +15,21 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
 
+    <body onload="resetCompare()">
+    </body>
+
     <section class="area" id="area">
+
+        <a class="reset" onclick="reset()">
+            Reset
+        </a>
+        
         <div class="left" id="left">
+
+            <div class="header1">
+
+            </div>
+
             <div class="dropdown">
                 <button class="dropbtn">Region</button>
                 <div class="dropdown-content">
@@ -32,7 +45,7 @@
             </div>
 
 
-            <input type="text" id="myInput" onkeyup="searchBar1()" placeholder="Search for names..">
+            <input type="text" id="myInput" onkeyup="searchBar1()" placeholder="Search for players.." title="Type in a player's name">
             <ul id="myUL">
                 
             </ul>
@@ -40,6 +53,11 @@
         </div>
 
         <div class="right" id="right">
+
+            <div class="header">
+                
+            </div>
+            
             <div class="dropdown">
                 <button class="dropbtn">Region</button>
                 <div class="dropdown-content">
@@ -54,18 +72,17 @@
                 </div>
             </div>
 
-            <input type="text" id="myInput2" onkeyup="searchBar2()" placeholder="Search for names.." title="Type in a name">
+            <input type="text" id="myInput2" onkeyup="searchBar2()" placeholder="Search for players.." title="Type in a player's name">
             <ul id="myUL2">
                                 
             </ul>
-        
-            <script src="function.js"></script>
-            
 
         </div>
+        
+        <a class="compare" href="compare.html">
+            Compare
+        </a>
     </section>
-
-    <a class="btn" href="compare.html">
-        Compare
-    </a>
+    
+    <script src="function.js"></script>
 </html>
