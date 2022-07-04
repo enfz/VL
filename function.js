@@ -9,6 +9,9 @@ var player1 = '';
 var player2 = '';
 const playerList1 = document.getElementById('myUL');
 const playerList2 = document.getElementById('myUL2');
+const header1 = document.getElementById('header1');
+const header2 = document.getElementById('header2');
+
 
 const loadPlayers1 = async () => {
     try {
@@ -16,12 +19,12 @@ const loadPlayers1 = async () => {
         const res = await fetch(cors_api_url + link1);
 
         const temp = await res.json();
-        players1 = temp.data.segments
+        players1 = temp.data.segments;
         displayPlayers1(players1);
     } catch (err) {
         console.error(err);
-        alert("You will be quickly redirected to \nhttps://cors-anywhere.herokuapp.com/corsdemo \nto request temporary access to use the client.")
-        window.open("https://cors-anywhere.herokuapp.com/corsdemo").focus
+        alert("You will be quickly redirected to \nhttps://cors-anywhere.herokuapp.com/corsdemo \nto request temporary access to use the client.");
+        window.open("https://cors-anywhere.herokuapp.com/corsdemo").focus;
     }
 };
 
@@ -38,7 +41,8 @@ const displayPlayers1 = (players) => {
 
 function chooseRegion1(choice){
     region1 = choice;
-    link1 = "https://vlrggapi.vercel.app/stats/" + region1 + "/90"
+    link1 = "https://vlrggapi.vercel.app/stats/" + region1 + "/90";
+    updateHeader1();
     loadPlayers1();
 }
 
@@ -72,7 +76,7 @@ const loadPlayers2 = async () => {
         const res = await fetch('https://cors-anywhere.herokuapp.com/' + link2);
 
         const temp = await res.json();
-        players2 = temp.data.segments
+        players2 = temp.data.segments;
         displayPlayers2(players2);
     } catch (err) {
         console.error(err);
@@ -92,7 +96,8 @@ const displayPlayers2 = (players2) => {
 
 function chooseRegion2(choice){
     region2 = choice;
-    link2 = "https://vlrggapi.vercel.app/stats/" + region2 + "/90"
+    link2 = "https://vlrggapi.vercel.app/stats/" + region2 + "/90";
+    updateHeader2();
     loadPlayers2();    
 }
 
@@ -115,19 +120,55 @@ function searchBar2(){
             }
         }
     } else{
-        alert("Please select a region first.")
-        input.value = ''
+        alert("Please select a region first.");
+        input.value = '';
     }
 }
 
 function choosePlayer1(name1, org1){
     player1 = players1.find(element => element.player == name1 && element.org == org1);
     sessionStorage.setItem("player1", JSON.stringify(player1));
+    updateHeader1();
 }
 
 function choosePlayer2(name2, org2){
     player2 = players2.find(element => element.player == name2 && element.org == org2);
     sessionStorage.setItem("player2", JSON.stringify(player2));
+    updateHeader2();
+}
+
+function updateHeader1(){
+    headerHTML1 = []
+    if (region1 != ''){
+        headerHTML1.push('Current Region: ' + region1.toUpperCase());
+    } else {
+        headerHTML1.push('Please select a region!');
+    }
+
+    if (player1 != '') {
+        headerHTML1.push('Current Player: ' + player1.org + ' ' + player1.player);
+    } else {
+        headerHTML1.push('Please select a player!')
+    }
+    const headerText1 = headerHTML1.join('<br>')
+    header1.innerHTML = headerText1
+}
+
+function updateHeader2(){
+    headerHTML2 = []
+    if (region2 != ''){
+        headerHTML2.push('Current Region: ' + region2.toUpperCase());
+    } else {
+        headerHTML2.push('Please select a region!');
+    }
+
+    if (player2 != '') {
+        headerHTML2.push('Current Player: ' + player2.org + ' ' + player2.player);
+    } else {
+        headerHTML2.push('Please select a player!');
+    }
+    const headerText2 = headerHTML2.join('<br>')
+    header2.innerHTML = headerText2
 }
 
 function reset(){
@@ -145,6 +186,8 @@ function reset(){
     if (playerList2){
         playerList2.innerHTML = "";
     }
+    updateHeader1();
+    updateHeader2();
     sessionStorage.clear();
 }
 
@@ -159,23 +202,23 @@ function tablePlayers(){
 
     if (playerA && playerB){
         for(var key in playerA){
-            playerAVariables.push(playerA[key])
-            playerBVariables.push(playerB[key])
+            playerAVariables.push(playerA[key]);
+            playerBVariables.push(playerB[key]);
         }
 
-        strings.push('<tr><th>Players</th><th>' + playerA.org + " " + playerA.player + '</th><th>' + playerB.org + " " + playerB.player + '</th></tr>\n')
+        strings.push('<tr><th>Players</th><th>' + playerA.org + " " + playerA.player + '</th><th>' + playerB.org + " " + playerB.player + '</th></tr>');
 
         for(var i = 2; i < playerAVariables.length; i++){
             if(playerAVariables[i] > playerBVariables[i]){
-                strings.push('<tr><th>' + varNames[i] + '</th><th class="higher">' + playerAVariables[i] + '</th><th class="lower">' + playerBVariables[i] + '</th></tr>\n')
+                strings.push('<tr><th>' + varNames[i] + '</th><th class="higher">' + playerAVariables[i] + '</th><th class="lower">' + playerBVariables[i] + '</th></tr>');
             } else if(playerAVariables[i] < playerBVariables[i]){
-                strings.push('<tr><th>' + varNames[i] + '</th><th class="lower">' + playerAVariables[i] + '</th><th class="higher">' + playerBVariables[i] + '</th></tr>\n')
+                strings.push('<tr><th>' + varNames[i] + '</th><th class="lower">' + playerAVariables[i] + '</th><th class="higher">' + playerBVariables[i] + '</th></tr>');
             } else {
-                strings.push('<tr><th>' + varNames[i] + '</th><th class="draw">' + playerAVariables[i] + '</th><th class="draw">' + playerBVariables[i] + '</th></tr>\n')
+                strings.push('<tr><th>' + varNames[i] + '</th><th class="draw">' + playerAVariables[i] + '</th><th class="draw">' + playerBVariables[i] + '</th></tr>');
             }
         }
         
-        const htmlPlayerString = strings.join('');
+        const htmlPlayerString = strings.join('\n');
         table.innerHTML = htmlPlayerString;
     }
     else{
@@ -185,15 +228,7 @@ function tablePlayers(){
 }
 
 function resetCompare(){
+    updateHeader1();
+    updateHeader2();
     sessionStorage.clear();
 }
-
-/* function getSearchText(side) {
-    if (side == 1){
-        return "Search for " + region1 + "players..."
-    }
-    else{
-        return "Search for " + region1 + "players..."
-    }
-    
-} */

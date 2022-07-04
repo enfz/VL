@@ -29,19 +29,31 @@
   .left {
     grid-area: left;
     position: relative;
-    top: 70%;
+    top: 65%;
     display: inline-block;
   }
+
+    .header1 {
+      font-family: var(--ff-primary);
+      font-weight: var(--fw-bold);
+      font-size: 18px;
+    }
 
   .right {
     grid-area: right;
     position: relative;
     left: 370px;
-    top: 70%;
+    top: 65%;
     display: inline-block;
   }
 
-  .reset {
+    .header2 {
+      font-family: var(--ff-primary);
+      font-weight: var(--fw-bold);
+      font-size: 18px;
+    }
+  
+    .reset {
     margin: auto;
     grid-area: reset;
     position: absolute;
