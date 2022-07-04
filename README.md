@@ -1,11 +1,11 @@
 ## VL
-http://www.valoprostat.com/
+[http://www.valoprostat.com/](https://ecjz01.github.io/VL/)
 
 VL is a project that takes data from vlr.gg using an API and allows users to compare the performances (different statistic values) of professional Valorant players from different regions over the past 90 dyas. Once the players are chosen, they will have their statistic values presented side by side with each other with a green font indicating that the player is better in that value, red font indicating that they are worse, and blue indicating that they have the same value. VL is made using Javascript, CSS, and HTML.
 
 ## Instructions
 
-Access the site at: http://www.valoprostat.com/
+Access the site at: [http://www.valoprostat.com/](https://ecjz01.github.io/VL/)
 
 When using the site:
 
