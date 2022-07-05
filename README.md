@@ -11,10 +11,11 @@ When using the site:
 
 1. Please visit https://cors-anywhere.herokuapp.com/corsdemo to request temporary access for your client's session so that the proxy can be used
 2. Select a region for the first player by pressing the title of the region in the dropdown.
-3. Begin typing the name of the player you are looking for or scroll through the options.
-4. Select the first player you wish to compare.
-5. Repeat the steps 1-3 for the second player.
-6. Click the compare button and you will see the comparison of their stats.
+3. *Please wait a few seconds to give the API time to load the data*
+4. Begin typing the name of the player you are looking for or scroll through the options.
+5. Select the first player you wish to compare.
+6. Repeat the steps 1-3 for the second player.
+7. Click the compare button and you will see the comparison of their stats.
 
 * ***If you wish to deselect a player or region at any point click the reset button, which will reset all currently inputted values.***
 
